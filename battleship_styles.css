@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* create grid  */
+
+.grid-container {
+  min-height: 100vh;
+  background-color: #777;
+  /* important to make it "display: grid"  */
+  display: grid;
+  /* create 11 columns */
+  grid-template-columns: repeat(11, auto);
+  /* create 9 rows */
+  /* hardcoded numbers for perfect size on the screen */
+  grid-template-rows: repeat(9, 6.05rem);
+  /* grid-gap: 5px; */
+  border: 2rem solid black;
+  position: relative;
+}
+
+.grid-item {
+  height: auto;
+  width: auto;
+  background-color: black;
+  border: 3px solid gray;
+}
+
+.input {
+  display: block;
+  position: absolute;
+  bottom: 3rem;
+  right: 3rem;
+}
+
+#miss-text {
+  display: block;
+  position: absolute;
+}
+
+.grid-item-14 {
+  border: 3px solid red;
+}
