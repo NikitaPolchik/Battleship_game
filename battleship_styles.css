@@ -3,7 +3,13 @@
   padding: 0;
   box-sizing: border-box;
 }
+:root {
+  --green-color: rgb(43, 86, 43);
+}
 
+body {
+  background-color: #777;
+}
 /* create grid  */
 
 .grid-container {
@@ -15,17 +21,47 @@
   grid-template-columns: repeat(11, auto);
   /* create 9 rows */
   /* hardcoded numbers for perfect size on the screen */
-  grid-template-rows: repeat(9, 6.05rem);
+  grid-template-rows: repeat(9, 6.06rem);
   /* grid-gap: 5px; */
   border: 2rem solid black;
   position: relative;
 }
 
+/* borders */
 .grid-item {
   height: auto;
   width: auto;
   background-color: black;
   border: 3px solid gray;
+}
+
+.inner-grid {
+  border: 3px solid var(--green-color);
+}
+.outer-grid-top {
+  border-bottom: 5px solid var(--green-color);
+}
+.outer-grid-bottom {
+  border-top: 5px solid var(--green-color);
+}
+.outer-grid-right {
+  border-left: 5px solid var(--green-color);
+}
+.outer-grid-left {
+  border-right: 5px solid var(--green-color);
+}
+
+.top {
+  border-top: none;
+}
+.bottom {
+  border-bottom: none;
+}
+.left {
+  border-left: none;
+}
+.right {
+  border-right: none;
 }
 
 .input {
@@ -40,6 +76,6 @@
   position: absolute;
 }
 
-.grid-item-14 {
-  border: 3px solid red;
-}
+/* .grid-item-14 {
+  padding: 1rem;
+} */
