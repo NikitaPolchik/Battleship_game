@@ -5,10 +5,20 @@
 }
 :root {
   --green-color: rgb(43, 86, 43);
+  --black-transparent: rgba(0, 0, 0, 0.86);
+  --gray-transparent: rgba(131, 131, 131, 0.5);
 }
 
+/* !problems with image */
+.background-img {
+  background-image: url(./2.jpg);
+  width: 100vh;
+  height: 100vh;
+}
+/*! 1 */
+
 body {
-  background-color: #777;
+  background-color: var(--black-transparent);
 }
 /* create grid  */
 
@@ -23,7 +33,7 @@ body {
   /* hardcoded numbers for perfect size on the screen */
   grid-template-rows: repeat(9, 6.06rem);
   /* grid-gap: 5px; */
-  border: 2rem solid black;
+  border: 2rem solid var(--black-transparent);
   position: relative;
 }
 
@@ -31,8 +41,8 @@ body {
 .grid-item {
   height: auto;
   width: auto;
-  background-color: black;
-  border: 3px solid gray;
+  background-color: var(--black-transparent);
+  border: 3px solid var(--gray-transparent);
 }
 
 .inner-grid {
