@@ -9,9 +9,18 @@
   --gray-transparent: rgba(131, 131, 131, 0.5);
 }
 
-/* insert background image (some pipe) */
+/* second layer */
+.background-color {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--black-transparent);
+  position: absolute;
+}
+
+/* ! */
+/* "third layer" - insert background image (battleship) */
 .background-img {
-  background-image: url(./cannons.png);
+  background-image: url(./BattleshipCannons.jpeg);
   width: 100vw;
   height: 100vh;
   /* forbid image from repeating across the page */
@@ -20,13 +29,6 @@
   background-size: cover;
   /* repositioning inside of parent (body in this case), to make it possible to hover over image */
   position: absolute;
-}
-
-/* ! */
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 /* ! */
 
@@ -37,23 +39,19 @@
   /* important to make it "display: grid"  */
   display: grid;
   /* create 11 columns */
-  /* hardcoded numbers for perfect size on the screen */
   grid-template-columns: repeat(11, auto);
   /* create 9 rows */
-  /* hardcoded numbers for perfect size on the screen */
-  grid-template-rows: repeat(9, 6.06rem);
-
-  border: 2rem solid var(--black-transparent);
-  border-left: 20rem solid var(--black-transparent);
-  border-right: 20rem solid var(--black-transparent);
+  grid-template-rows: repeat(9, auto);
+  justify-content: center;
+  align-content: center;
   position: relative;
 }
 
 /* borders */
 .grid-item {
-  height: auto;
-  width: auto;
-  background-color: var(--black-transparent);
+  width: 6rem;
+  height: 6rem;
+  /* background-color: var(--black-transparent); */
   border: 1px solid var(--gray-transparent);
 }
 
@@ -76,9 +74,9 @@
 .outer-grid-left {
   border-right: 5px solid var(--green-color);
   color: var(--green-color);
-  display: flex;
+  display: grid;
   justify-content: right;
-  align-items: center;
+  align-content: center;
   font-size: 2rem;
   padding-right: 13px;
 }
