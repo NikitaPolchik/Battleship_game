@@ -17,7 +17,6 @@
   position: absolute;
 }
 
-/* ! */
 /* "third layer" - insert background image (battleship) */
 .background-img {
   background-image: url(./BattleshipCannons.jpeg);
@@ -30,7 +29,6 @@
   /* repositioning inside of parent (body in this case), to make it possible to hover over image */
   position: absolute;
 }
-/* ! */
 
 /* create grid  */
 .grid-container {
@@ -51,12 +49,14 @@
 .grid-item {
   width: 6rem;
   height: 6rem;
-  /* background-color: var(--black-transparent); */
   border: 1px solid var(--gray-transparent);
 }
 
 .inner-grid {
   border: 1.5px solid var(--green-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .outer-grid-top {
   border-bottom: 5px solid var(--green-color);
@@ -101,11 +101,16 @@
   right: 3rem;
 }
 
-#miss-text {
-  display: block;
-  position: absolute;
+/* ! */
+#text-grid-item-14 {
+  font-size: 2rem;
+  color: var(--green-color);
+  display: none;
 }
 
-/* .grid-item-13 {
-  font-size: 3rem;
-} */
+#battleship {
+  width: 5rem;
+  height: 6rem;
+  /* display: none; */
+}
+/* ! */
