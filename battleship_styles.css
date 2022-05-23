@@ -57,7 +57,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
+
 .outer-grid-top {
   border-bottom: 5px solid var(--green-color);
 }
@@ -102,15 +104,17 @@
 }
 
 /* ! */
-#text-grid-item-14 {
+.text-inner-miss {
   font-size: 2rem;
   color: var(--green-color);
-  display: none;
+  /* display: none; */
+  cursor: not-allowed;
 }
 
-#battleship {
+.battleship-icon {
   width: 5rem;
   height: 6rem;
   /* display: none; */
+  cursor: not-allowed;
 }
 /* ! */
