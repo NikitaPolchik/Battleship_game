@@ -3,43 +3,89 @@ const IMG_CLASS = "battleship-icon";
 const TXT_CLASS = "text-inner-miss";
 const innerElement = document.querySelector(".inner-grid");
 const innerGridElements = document.querySelectorAll(".inner-grid");
+// add enemy ships to random locations
 let ship1 = document.querySelector("." + chooseLetterNumber());
 let ship2 = document.querySelector("." + chooseLetterNumber());
 let ship3 = document.querySelector("." + chooseLetterNumber());
 let ship4 = document.querySelector("." + chooseLetterNumber());
 let ship5 = document.querySelector("." + chooseLetterNumber());
-
-ship1.style.backgroundColor = "red";
-ship2.style.backgroundColor = "red";
-ship3.style.backgroundColor = "red";
-ship4.style.backgroundColor = "red";
-ship5.style.backgroundColor = "red";
-
-// !
-additionalShip.style.backgroundColor = "blue";
-
-let ships = [ship1, ship2, ship3, ship4, ship5];
-let toFindDuplicates = () => {
-  let toFindDuplicates = (ships) =>
-    ships.filter((item, index) => ships.indexOf(item) !== index);
-  let duplicates = toFindDuplicates(ships);
-  return duplicates;
-};
-
-if (toFindDuplicates != []) {
-  let additionalShip = document.querySelector("." + chooseLetterNumber());
-}
-console.log(toFindDuplicates());
-// !
+let relocationDuplicatesInCell = tripleCheckNestingShips();
 
 // *Event listeners
 
 //add function to go through all elements and addEventListener to them
 innerGridElements.forEach((innerElement) => {
-  innerElement.addEventListener("click", addHitOrMiss, { once: true });
+  innerElement.addEventListener("click", addShipOrMiss, { once: true });
 });
 
 // *Functions
+
+// remove duplicates from grid and add duplicate ship on different cell (hardcoded for precision)
+function tripleCheckNestingShips() {
+  let result = relocationNestingShips();
+  let result2 = relocationNestingShips2();
+  let result3 = relocationNestingShips3();
+
+  function relocationNestingShips() {
+    if (
+      ship1 === ship2 ||
+      ship1 === ship3 ||
+      ship1 === ship4 ||
+      ship1 === ship5
+    ) {
+      ship1 = document.querySelector("." + chooseLetterNumber());
+    }
+    if (ship2 === ship3 || ship2 === ship4 || ship2 === ship5) {
+      ship2 = document.querySelector("." + chooseLetterNumber());
+    }
+    if (ship3 === ship4 || ship3 === ship5) {
+      ship3 = document.querySelector("." + chooseLetterNumber());
+    }
+    if (ship4 === ship5) {
+      ship4 = document.querySelector("." + chooseLetterNumber());
+    }
+  }
+
+  function relocationNestingShips2() {
+    if (
+      ship1 === ship2 ||
+      ship1 === ship3 ||
+      ship1 === ship4 ||
+      ship1 === ship5
+    ) {
+      ship1 = document.querySelector("." + chooseLetterNumber());
+    }
+    if (ship2 === ship3 || ship2 === ship4 || ship2 === ship5) {
+      ship2 = document.querySelector("." + chooseLetterNumber());
+    }
+    if (ship3 === ship4 || ship3 === ship5) {
+      ship3 = document.querySelector("." + chooseLetterNumber());
+    }
+    if (ship4 === ship5) {
+      ship4 = document.querySelector("." + chooseLetterNumber());
+    }
+  }
+  function relocationNestingShips3() {
+    if (
+      ship1 === ship2 ||
+      ship1 === ship3 ||
+      ship1 === ship4 ||
+      ship1 === ship5
+    ) {
+      ship1 = document.querySelector("." + chooseLetterNumber());
+    }
+    if (ship2 === ship3 || ship2 === ship4 || ship2 === ship5) {
+      ship2 = document.querySelector("." + chooseLetterNumber());
+    }
+    if (ship3 === ship4 || ship3 === ship5) {
+      ship3 = document.querySelector("." + chooseLetterNumber());
+    }
+    if (ship4 === ship5) {
+      ship4 = document.querySelector("." + chooseLetterNumber());
+    }
+  }
+  return result, result2, result3;
+}
 
 function chooseLetterNumber() {
   let chooseLetter = Math.floor(Math.random() * 10);
@@ -102,17 +148,34 @@ function chooseLetterNumber() {
   return chooseLetterNumber;
 }
 
-function addHitOrMiss(e) {
-  let i = Math.floor(Math.random() * 10);
-  if (i < 5) {
-    addHit(e);
+// !
+ship1.style.backgroundColor = "red";
+ship2.style.backgroundColor = "red";
+ship3.style.backgroundColor = "red";
+ship4.style.backgroundColor = "red";
+ship5.style.backgroundColor = "red";
+
+console.log(ship1, ship2, ship3, ship4, ship5);
+
+function addShipOrMiss(e) {
+  let result;
+  if (
+    document.getElementsByClassName("inner-grid") === ship1 ||
+    document.getElementsByClassName(".inner-grid") == ship2 ||
+    document.getElementsByClassName(".inner-grid") == ship3 ||
+    document.getElementsByClassName(".inner-grid") == ship4 ||
+    document.getElementsByClassName(".inner-grid") == ship5
+  ) {
+    let result = addShip(e);
   } else {
-    addMiss(e);
+    let result = addMiss(e);
   }
+  return result;
 }
+// !
 
 // place img
-function addHit(e) {
+function addShip(e) {
   const innerElement = e.target;
   const innerElementBoat = document.createElement("img");
   innerElementBoat.src = "militaryBoat.png";
