@@ -158,20 +158,29 @@ ship5.style.backgroundColor = "red";
 console.log(ship1, ship2, ship3, ship4, ship5);
 
 function addShipOrMiss(e) {
-  let result;
-  if (
-    document.getElementsByClassName("inner-grid") === ship1 ||
-    document.getElementsByClassName(".inner-grid") == ship2 ||
-    document.getElementsByClassName(".inner-grid") == ship3 ||
-    document.getElementsByClassName(".inner-grid") == ship4 ||
-    document.getElementsByClassName(".inner-grid") == ship5
-  ) {
-    let result = addShip(e);
-  } else {
-    let result = addMiss(e);
+  let innerElement = e.target;
+
+  switch (innerElement) {
+    case ship1:
+      addShip(e);
+      break;
+    case ship2:
+      addShip(e);
+      break;
+    case ship3:
+      addShip(e);
+      break;
+    case ship4:
+      addShip(e);
+      break;
+    case ship5:
+      addShip(e);
+      break;
+    default:
+      addMiss(e);
   }
-  return result;
 }
+
 // !
 
 // place img

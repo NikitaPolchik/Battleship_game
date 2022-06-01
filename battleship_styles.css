@@ -96,13 +96,6 @@
   border-right: none;
 }
 
-.input {
-  display: block;
-  position: absolute;
-  bottom: 3rem;
-  right: 3rem;
-}
-
 /* ! */
 .text-inner-miss {
   font-size: 2rem;
