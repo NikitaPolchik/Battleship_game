@@ -3,6 +3,10 @@ const IMG_CLASS = "battleship-icon";
 const TXT_CLASS = "text-inner-miss";
 const innerElement = document.querySelector(".inner-grid");
 const innerGridElements = document.querySelectorAll(".inner-grid");
+const startBtn = document.querySelector(".startBtn");
+const startScreen = document.querySelector(".startScreen");
+const winScreen = document.querySelector(".winScreen");
+
 // add enemy ships to random locations
 let ship1 = document.querySelector("." + chooseLetterNumber());
 let ship2 = document.querySelector("." + chooseLetterNumber());
@@ -13,12 +17,16 @@ let relocationDuplicatesInCell = tripleCheckNestingShips();
 
 // *Event listeners
 
+startBtn.addEventListener("click", startGame);
 //add function to go through all elements and addEventListener to them
 innerGridElements.forEach((innerElement) => {
   innerElement.addEventListener("click", addShipOrMiss, { once: true });
 });
 
 // *Functions
+function startGame() {
+  startScreen.classList.add("startScreenOff");
+}
 
 // remove duplicates from grid and add duplicate ship on different cell (hardcoded for precision)
 function tripleCheckNestingShips() {
@@ -148,15 +156,6 @@ function chooseLetterNumber() {
   return chooseLetterNumber;
 }
 
-// !
-ship1.style.backgroundColor = "red";
-ship2.style.backgroundColor = "red";
-ship3.style.backgroundColor = "red";
-ship4.style.backgroundColor = "red";
-ship5.style.backgroundColor = "red";
-
-console.log(ship1, ship2, ship3, ship4, ship5);
-
 function addShipOrMiss(e) {
   let innerElement = e.target;
 
@@ -181,7 +180,7 @@ function addShipOrMiss(e) {
   }
 }
 
-// !
+let counter = 0;
 
 // place img
 function addShip(e) {
@@ -190,6 +189,13 @@ function addShip(e) {
   innerElementBoat.src = "militaryBoat.png";
   innerElement.appendChild(innerElementBoat);
   innerElementBoat.classList.add(IMG_CLASS);
+
+  if (innerElementBoat) {
+    counter = counter + 1;
+  }
+  if (counter == 5) {
+    winScreen.classList.add("winScreenOn");
+  }
 }
 
 // place txt
@@ -200,3 +206,11 @@ function addMiss(e) {
   innerElement.appendChild(innerElementTxt);
   innerElementTxt.classList.add(TXT_CLASS);
 }
+
+// ship1.style.backgroundColor = "red";
+// ship2.style.backgroundColor = "red";
+// ship3.style.backgroundColor = "red";
+// ship4.style.backgroundColor = "red";
+// ship5.style.backgroundColor = "red";
+
+// console.log(ship1, ship2, ship3, ship4, ship5);

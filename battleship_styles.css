@@ -96,18 +96,74 @@
   border-right: none;
 }
 
-/* ! */
 .text-inner-miss {
   font-size: 2rem;
   color: var(--green-color);
-  /* display: none; */
+
   cursor: not-allowed;
 }
 
 .battleship-icon {
   width: 5rem;
   height: 6rem;
-  /* display: none; */
+
   cursor: not-allowed;
 }
-/* ! */
+
+/* start screen */
+.startScreen {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Lato", sans-serif;
+}
+
+.startScreenOff {
+  display: none;
+}
+
+.startScreen h1 {
+  color: var(--green-color);
+  position: absolute;
+  top: 23vh;
+  font-size: 7vh;
+}
+
+.startBtn {
+  background-color: var(--green-color);
+  padding: 3vh 7vh;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 3vh;
+}
+
+/* win screen */
+
+.winScreen {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Lato", sans-serif;
+  display: none;
+}
+
+.winScreen h1 {
+  color: var(--green-color);
+  top: 23vh;
+  font-size: 7vh;
+}
+
+.winScreenOn {
+  display: flex;
+}
