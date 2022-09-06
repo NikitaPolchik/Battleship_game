@@ -152,13 +152,14 @@
   background-color: black;
   position: absolute;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   font-family: "Lato", sans-serif;
   display: none;
 }
 
-.winScreen h1 {
+.winScreen div h1 {
   color: var(--green-color);
   top: 23vh;
   font-size: 7vh;
